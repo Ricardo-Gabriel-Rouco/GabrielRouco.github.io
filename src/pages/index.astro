@@ -2,11 +2,19 @@
 import Badge from "../components/Badge.astro";
 import Layout from "../layouts/Layout.astro";
 import Pills from "../components/Pills.astro";
+import LinkedIn from "../components/Icons/LinkedIn.astro";
+import Github from "../components/Icons/Github.astro";
+import Mail from "../components/Icons/Mail.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import WorkExperience from "../components/Icons/WorkExperience.astro";
+import ProyectIcon from "../components/Icons/ProyectIcon.astro";
+import Proyects from "../components/Proyects.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-16">
+<Layout title="Portfolio de Gabriel Rouco - Programador y desarrollador web">
+  <main class="px-4">
+    <SectionContainer class="py-16">
       <section class="flex flex-row gap-x-4 py-8">
         <img
           class="size-16 rounded-full bg-white"
@@ -22,22 +30,44 @@ import Pills from "../components/Pills.astro";
           <Badge>Disponible para Trabajar</Badge>
         </a>
       </section>
-      <h1 class="text-white text-4xl text-bold flex flex-row gap-x-4 pb-6">
-        Hey, soy <span class="title">Gabriel Rouco</span>
+      <h1
+        class="text-white text-2xl md:text-3xl lg:text-4xl text-bold flex flex-row gap-x-4 pb-4 lg:pb-6"
+      >
+        Hey, soy <span class="text-amber-500">Gabriel Rouco</span>
       </h1>
-      <h2 class="text-xl opacity-85">
-        Soy <span class="title">Desarrollador Fullstack</span>, con
+      <h2 class="text-xl lg:text-2xl opacity-85 text-wrap max-w[700px]">
+        Soy <span class="text-amber-500">Desarrollador Fullstack</span>, con
         conocimientos en JavaScript, React, Redux, Node.js, Expres.js,
         Typescript y Next.js. Soy una persona que siempre busca agregar
         conocimientos y experiencias nuevas y en constante aprendizaje.
       </h2>
-      <Pills />
-    </section>
+      <nav class="flex flex-wrap gap-4 mt-8">
+        <Pills href="https://www.linkedin.com/in/ricardo-gabriel-rouco/">
+          <LinkedIn class="size-4 md:size-6" /> LinkedIn
+        </Pills>
+        <Pills href="https://github.com/Ricardo-Gabriel-Rouco">
+          <Github class="size-4 md:size-6" />Github
+        </Pills>
+        <Pills href="mail.to:r.g.rouco1@gmail.com">
+          <Mail class="size-4 md:size-6" />Contactame
+        </Pills>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia" class="py-6">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <WorkExperience class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos" class="py-6">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <ProyectIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Proyects />
+    </SectionContainer>
   </main>
 </Layout>
-
-<style>
-  .title {
-    color: #ffcf76;
-  }
-</style>

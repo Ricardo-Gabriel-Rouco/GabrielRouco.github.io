@@ -1,0 +1,109 @@
+---
+import HTML from "./Icons/HTML.astro";
+import Javascript from "./Icons/Javascript.astro";
+import React from "./Icons/React.astro";
+import Redux from "./Icons/Redux.astro";
+import sequelize from "./Icons/sequelize.astro";
+import Express from "./Icons/Express.astro";
+import Firebase from "./Icons/Firebase.astro";
+import MaterialUI from "./Icons/MaterialUI.astro";
+
+const TAGS = {
+  html: {
+    name: "HTML",
+    class: "bg-white text-black",
+    icon: HTML,
+  },
+  js: {
+    name: "Javascript",
+    class: "bg-white text-black",
+    icon: Javascript,
+  },
+  react: {
+    name: "React",
+    class: "bg-white text-black",
+    icon: React,
+  },
+  redux: {
+    name: "Redux",
+    class: "bg-white text-black",
+    icon: Redux,
+  },
+  sequelize: {
+    name: "Sequelize",
+    class: "bg-white text-black",
+    icon: sequelize,
+  },
+  express: {
+    name: "Express",
+    class: "bg-white text-black",
+    icon: Express,
+  },
+  firebase: {
+    name: "Firebase",
+    class: "bg-white text-black",
+    icon: Firebase,
+  },
+  materialui: {
+    name: "MaterialUI",
+    class: "bg-white text-black",
+    icon: MaterialUI,
+  },
+};
+
+const PROYECTS = [
+  {
+    title: "Call of whatever i Want",
+    description:
+      "Un mini juego utilizando JavaScript puro, con un poco de CSS para el menú principal usando Less. Fue creado simplemente para practicar el uso de clases y objetos en JS. Actualmente está desplegado en Vercel. No es responsive.",
+    link: "https://callofwhatever.vercel.app/",
+    github: "https://github.com/Ricardo-Gabriel-Rouco/callofwhatever",
+    image: "/callof.webp",
+    tags: [TAGS.html, TAGS.js],
+  },
+  {
+    title: "Pi-videogames",
+    description:
+      "Esto es una aplicación Crud creada para el Proyecto Individual en el bootcamp de Desarrollo FullStack en SoyHenry. Fue construida con React, Js, Redux, Sequelize y un servidor Express. El despliegue se realiza en Railway y debido a las restricciones del plan gratuito, podría estar fuera de servicio. Toda la información proviene de la API de Rawg.io. Además, la página se renderiza en Vercel.",
+    link: "https://video-game-deploy.vercel.app/",
+    github: "https://github.com/Ricardo-Gabriel-Rouco/videoGameDeploy",
+    image: "/video-games.webp",
+    tags: [TAGS.react, TAGS.redux, TAGS.express, TAGS.sequelize],
+  },
+  {
+    title: "Book´s Kingdom",
+    description:
+      "Un comercio electrónico que fue desarrollado como proyecto final en el bootcamp de SoyHenry, en equipo con seis miembros. Utilizamos Firebase para el back-end, y la autenticación de usuarios se realizó con el servicio de autenticación de Google. Además, para el estilo del front-end empleamos Material UI, NodeMailer para el envío de correos electrónicos y finalmente implementamos Redux Toolkit para gestionar estados globales.",
+    link: "https://www.book-kingom.com.ar/",
+    github: "https://github.com/Ricardo-Gabriel-Rouco/PFHENRY",
+    image: "/bookkingdom.webp",
+    tags: [TAGS.react, TAGS.firebase, TAGS.materialui, TAGS.redux],
+  },
+];
+---
+
+{
+  PROYECTS.map(({ title, description, image, tags }) => (
+    <article class="py-8">
+      <h3 class="text-2xl font-semibold text-amber-500 mb-2">{title}</h3>
+      <img
+        class="rounded shadow-2xl shadow-white/10 size-96"
+        loading="lazy"
+        src={image}
+        alt="image"
+      />
+      <p class="text-lg mt-4 mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row mb-2">
+        {tags.map((tag) => (
+          <li class="flex gap-x-2">
+            <span
+              class={`flex gap-x-2 rounded-full text-sm py-1 px-2 items-center ${tag.class}`}
+            >
+              <tag.icon class="size-4" /> {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  ))
+}

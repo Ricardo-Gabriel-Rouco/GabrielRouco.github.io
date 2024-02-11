@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Noviembre 2023 - Presente",
+    title: "Desarrollador Fullstack - Aythen",
+    description:
+      "Desarrollo de componentes web, funciones en API y funcionalidades para mejorar la UX/UI. Mejoré la legibilidad y facilidad de implementacíon de código, optimizando los tiempos en un 30% de desarrollo de funcionalidades y endpoints nuevos.",
+    link: "",
+  },
+  {
+    date: "Marzo 2021 - Agosto 2022",
+    title: "Administrativo - Aislamax",
+    description:
+      "Desempeñé el cargo de administrativo de facturacíon mediante el uso del sistema Tango. Optimizé la carga de pedidos, los tiempos de facturacíon y de gestíon de stock del mismo sistema además de dar soporte interno",
+    link: "",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCE.map((item) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...item} />
+      </li>
+    ))
+  }
+</ol>
