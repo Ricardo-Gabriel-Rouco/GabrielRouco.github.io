@@ -7,46 +7,49 @@ import sequelize from "./Icons/sequelize.astro";
 import Express from "./Icons/Express.astro";
 import Firebase from "./Icons/Firebase.astro";
 import MaterialUI from "./Icons/MaterialUI.astro";
+import Github from "./Icons/Github.astro";
+import Link from "./Icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
   html: {
     name: "HTML",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: HTML,
   },
   js: {
     name: "Javascript",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: Javascript,
   },
   react: {
     name: "React",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: React,
   },
   redux: {
     name: "Redux",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: Redux,
   },
   sequelize: {
     name: "Sequelize",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: sequelize,
   },
   express: {
     name: "Express",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: Express,
   },
   firebase: {
     name: "Firebase",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: Firebase,
   },
   materialui: {
     name: "MaterialUI",
-    class: "bg-white text-black",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: MaterialUI,
   },
 };
@@ -82,28 +85,55 @@ const PROYECTS = [
 ];
 ---
 
-{
-  PROYECTS.map(({ title, description, image, tags }) => (
-    <article class="py-8">
-      <h3 class="text-2xl font-semibold text-amber-500 mb-2">{title}</h3>
-      <img
-        class="rounded shadow-2xl shadow-white/10 size-96"
-        loading="lazy"
-        src={image}
-        alt="image"
-      />
-      <p class="text-lg mt-4 mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-4 flex-row mb-2">
-        {tags.map((tag) => (
-          <li class="flex gap-x-2">
-            <span
-              class={`flex gap-x-2 rounded-full text-sm py-1 px-2 items-center ${tag.class}`}
-            >
-              <tag.icon class="size-4" /> {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </article>
-  ))
-}
+<div class="flex flex-col gap-y-16">
+  {
+    PROYECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="An awesome alt for an awesome image"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-amber-500 ">{title}</h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2  dark:text-white/70 ">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <Github class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

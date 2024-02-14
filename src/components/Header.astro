@@ -1,5 +1,5 @@
 ---
-// import ThemeToggle from "./ThemeToggle.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const navItems = [
   {
@@ -42,7 +42,7 @@ const navItems = [
         </a>
       ))
     }
-    <!-- <ThemeToggle /> -->
+    <ThemeToggle />
   </nav>
 </header>
 
@@ -97,7 +97,7 @@ const navItems = [
 
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur bg-gray-300/60 dark:bg-gray-800/60 ring-white/10;
+      @apply shadow-lg ring-1 backdrop-blur bg-gray-300/60  ring-white/10;
     }
   }
 </style>
