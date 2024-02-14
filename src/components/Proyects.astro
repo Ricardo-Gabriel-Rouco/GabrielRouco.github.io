@@ -9,6 +9,8 @@ import Firebase from "./Icons/Firebase.astro";
 import MaterialUI from "./Icons/MaterialUI.astro";
 import Github from "./Icons/Github.astro";
 import Link from "./Icons/Link.astro";
+import AstroIcon from "./Icons/AstroIcon.astro";
+import Tailwind from "./Icons/Tailwind.astro";
 import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
@@ -52,6 +54,16 @@ const TAGS = {
     class: "bg-gray-500 dark:bg-white text-white dark:text-black",
     icon: MaterialUI,
   },
+  astro: {
+    name: "Astro",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
+    icon: AstroIcon,
+  },
+  tailwind: {
+    name: "Tailwind",
+    class: "bg-gray-500 dark:bg-white text-white dark:text-black",
+    icon: Tailwind,
+  },
 };
 
 const PROYECTS = [
@@ -81,6 +93,24 @@ const PROYECTS = [
     github: "https://github.com/Ricardo-Gabriel-Rouco/PFHENRY",
     image: "/bookkingdom.webp",
     tags: [TAGS.react, TAGS.firebase, TAGS.materialui, TAGS.redux],
+  },
+  {
+    title: "Porfolio/cv",
+    description:
+      "Un cv desplegado en en web, utilizando css, html y javascript con el proposito de practicar el framework Astro",
+    link: "https://unique-kitten-d8771b.netlify.app/",
+    github: "https://github.com/Ricardo-Gabriel-Rouco/minimalist-portfolio",
+    image: "/porfolio-cv.webp",
+    tags: [TAGS.html, TAGS.js, TAGS.astro],
+  },
+  {
+    title: "Portfolio",
+    description:
+      "Un porfolio desplegado en la web con el fin de reforzar buenas prácticas en el uso de Astro, Tailwind y creacíon de UI/UX.",
+    link: "https://master--deft-toffee-295b6b.netlify.app/",
+    github: "https://github.com/Ricardo-Gabriel-Rouco/new-portfolio",
+    image: "/porfolio.webp",
+    tags: [TAGS.html, TAGS.js, TAGS.astro, TAGS.tailwind],
   },
 ];
 ---
